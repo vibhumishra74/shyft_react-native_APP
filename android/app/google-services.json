@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "332294173725",
+    "project_id": "auth-f425e",
+    "storage_bucket": "auth-f425e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332294173725:android:3c05c3ce72e1a02c0342f4",
+        "android_client_info": {
+          "package_name": "com.shyft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332294173725-3vk89tbs2aqp8dukoqe34qii6iha5un7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shyft",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "332294173725-ct8449kr9e9b1grn8va8i3k7uk4fa4mr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFWbIM1UJ7TvbYB13iiwdsGvLlyEjJIoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332294173725-ct8449kr9e9b1grn8va8i3k7uk4fa4mr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
