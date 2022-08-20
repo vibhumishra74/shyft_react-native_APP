@@ -13,13 +13,15 @@ import {
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { useDispatch,useSelector } from "react-redux";
-import { saveToken, userDetails } from '../../redux/actions';
+import { isUserLogedin, saveToken, userDetails } from '../../redux/actions';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-const Login = () => {
+const Login = ({navigation}) => {
 const dispatch=useDispatch();
 
 const token = useSelector((state)=>state.user.token)
+
+
 
   React.useEffect(()=>{
     GoogleSignin.configure({
@@ -28,17 +30,28 @@ const token = useSelector((state)=>state.user.token)
       offlineAccess: true,
     });
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
+    // return subscriber;
   },[token])
   function onAuthStateChanged(user) {
     if (user) dispatch(userDetails(user));
   }
 
-
+  const saveData = async (token) => {
+    try {
+      const jsonValue = JSON.stringify(token)
+      let token1 = await AsyncStorage.setItem('STORAGE_KEY', jsonValue)
+      dispatch(isUserLogedin(true))
+      dispatch(saveToken(token1))
+      // alert('save the data to the storage')
+    } catch (e) {
+      alert('Failed to save the data to the storage')
+    }
+  }
  
   async function signinWithGoogle() {
     // Get the users ID token
     const { idToken } = await GoogleSignin.signIn();
+   await saveData(idToken)
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     // Sign-in the user with the credential
@@ -67,6 +80,10 @@ const token = useSelector((state)=>state.user.token)
       />
       <Text style={styles.googleButtonText}>Sign in with Google</Text>
      </TouchableOpacity>
+     {/* <TouchableOpacity onPress={()=>navigation.navigate('login')} style={styles.emailButton}>
+     
+      <Text style={styles.googleButtonText}>Sign in with email</Text>
+     </TouchableOpacity> */}
     </View>
    </View>
   </SafeAreaView>
@@ -95,6 +112,16 @@ const styles = StyleSheet.create({
   color: "white",
  },
  googleButton: {
+  backgroundColor: "white",
+  borderRadius: 4,
+  paddingHorizontal: 34,
+  paddingVertical: 16,
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center'
+ },
+ emailButton: {
+  marginTop:20,
   backgroundColor: "white",
   borderRadius: 4,
   paddingHorizontal: 34,

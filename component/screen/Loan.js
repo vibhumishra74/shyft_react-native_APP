@@ -51,7 +51,7 @@ const MyComponent = () => {
       console.log(email);
       let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (reg.test(email) === false) {
-        console.log("Email is Not Correct");
+        alert("Email is Not Correct");
       
       }
       else {

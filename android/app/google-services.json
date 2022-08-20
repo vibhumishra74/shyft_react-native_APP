@@ -22,6 +22,22 @@
           }
         },
         {
+          "client_id": "332294173725-kivhb78hpt2m3us43rc332qtd5hvk35i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shyft",
+            "certificate_hash": "a9f435de3776d2888e509733a5f3145f43e7b176"
+          }
+        },
+        {
+          "client_id": "332294173725-qr4276u2l1p7u35so9ags190ek77r441.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shyft",
+            "certificate_hash": "7b1da5760c5216f2c3399a0ff76bdc2c73156f03"
+          }
+        },
+        {
           "client_id": "332294173725-ct8449kr9e9b1grn8va8i3k7uk4fa4mr.apps.googleusercontent.com",
           "client_type": 3
         }
